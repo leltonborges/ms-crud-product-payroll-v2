@@ -1,6 +1,24 @@
 server:
   port: 8090
+  servlet:
+    context-path: /payroll
 
 spring:
   application:
     name: app-payroll
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB10Dialect
+        format_sql: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  jmx:
+    enabled: false
+  datasource:
+    #    url: jdbc:mariadb://localhost:3306/ms-crud-v2?usesSL=false
+    url: jdbc:mariadb://${HOST_DB:localhost}:${DB_PORT:3306}/${DB_NAME:product-payroll}
+    username: ${DB_USER:study}
+    password: ${DB_PASS:123}
+    driver-class-name: org.mariadb.jdbc.Driver

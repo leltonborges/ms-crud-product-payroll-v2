@@ -28,5 +28,5 @@ public class ProductPayroll implements Serializable {
     private Integer quantity;
 
     @ManyToOne
-    private ProductSele seles;
+    private ProductSele sele;
 }
