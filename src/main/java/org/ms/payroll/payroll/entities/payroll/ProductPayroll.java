@@ -1,9 +1,9 @@
-package org.ms.payroll.payroll.entities;
+package org.ms.payroll.payroll.entities.payroll;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.ms.crud.entities.Product;
+import org.ms.payroll.payroll.entities.product.Product;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -22,8 +22,7 @@ public class ProductPayroll implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    private Product product;
+    private Long product;
     @Min(1)
     private Integer quantity;
 

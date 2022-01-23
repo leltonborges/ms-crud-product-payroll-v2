@@ -2,8 +2,8 @@ package org.ms.payroll.payroll.services;
 
 import org.modelmapper.ModelMapper;
 import org.ms.payroll.payroll.dtos.ProductPayrollDTO;
-import org.ms.payroll.payroll.entities.ProductPayroll;
-import org.ms.payroll.payroll.repositories.ProductPayrollRepository;
+import org.ms.payroll.payroll.entities.payroll.ProductPayroll;
+import org.ms.payroll.payroll.repositories.payroll.ProductPayrollRepository;
 import org.ms.payroll.payroll.services.exceptions.NotFoundProductPayroll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,21 +15,16 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class ProductPayrollService implements Serializable {
     @Serial
     private static final long serialVersionUID = 5103377726849728177L;
 
-    private ProductPayrollRepository productPayrollRepository;
-    private ModelMapper mapper;
-
     @Autowired
-    public ProductPayrollService(ProductPayrollRepository productPayrollRepository, ModelMapper mapper) {
-        this.productPayrollRepository = productPayrollRepository;
-        this.mapper = mapper;
-    }
+    private ProductPayrollRepository productPayrollRepository;
+    @Autowired
+    private ModelMapper mapper;
 
     public List<ProductPayrollDTO> findAll() {
        return productPayrollRepository

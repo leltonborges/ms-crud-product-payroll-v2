@@ -2,7 +2,7 @@ package org.ms.payroll.payroll.configs;
 
 import org.modelmapper.ModelMapper;
 import org.ms.payroll.payroll.dtos.ProductPayrollDTO;
-import org.ms.payroll.payroll.entities.ProductPayroll;
+import org.ms.payroll.payroll.entities.payroll.ProductPayroll;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +12,7 @@ public class ModelMapperConfig {
     public ModelMapper instanceModelMapper(){
         ModelMapper mapper = new ModelMapper();
         mapper.createTypeMap(ProductPayrollDTO.class, ProductPayroll.class);
+
         mapper.createTypeMap(ProductPayroll.class, ProductPayrollDTO.class);
 
         return mapper;

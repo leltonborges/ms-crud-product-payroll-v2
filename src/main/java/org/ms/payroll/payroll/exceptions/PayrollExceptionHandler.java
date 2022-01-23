@@ -1,5 +1,6 @@
 package org.ms.payroll.payroll.exceptions;
 
+import org.ms.payroll.payroll.services.exceptions.NotFoundProduct;
 import org.ms.payroll.payroll.services.exceptions.NotFoundProductPayroll;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 public class PayrollExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NotFoundProductPayroll.class)
-    public ResponseEntity<StandarError> notFoundProductPayrol(NotFoundProductPayroll ex, HttpServletRequest request){
+    public ResponseEntity<StandarError> notFoundProductPayroll(NotFoundProductPayroll ex, HttpServletRequest request){
         StandarError err =
-                new StandarError(HttpStatus.NOT_FOUND, ex.getMessage(),
-                        "Not found", System.currentTimeMillis(), request.getRequestURI());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+                new StandarError(HttpStatus.BAD_REQUEST, ex.getMessage(),
+                        "Not found productPayroll", System.currentTimeMillis(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+    }
+
+    @ExceptionHandler(NotFoundProduct.class)
+    public ResponseEntity<StandarError> notFoundProduct(NotFoundProduct ex, HttpServletRequest request){
+        StandarError err =
+                new StandarError(HttpStatus.BAD_REQUEST, ex.getMessage(),
+                        "Not found product", System.currentTimeMillis(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
     }
 }

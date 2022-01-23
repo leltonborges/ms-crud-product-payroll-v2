@@ -1,4 +1,4 @@
-package org.ms.payroll.payroll.entities;
+package org.ms.payroll.payroll.entities.payroll;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,10 +28,7 @@ public class ProductSele implements Serializable {
     @Column(nullable = false)
     private Date data;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "seles",
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sele",
             cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private List<ProductPayroll> products;
-
-    @Min(1)
-    private BigDecimal totalValue;
 }
