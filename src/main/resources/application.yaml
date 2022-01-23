@@ -15,7 +15,7 @@ spring:
         format_sql: true
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
   jmx:
     enabled: false
   datasource:
@@ -23,6 +23,16 @@ spring:
     username: ${DB_USER:study}
     password: ${DB_PASS:123}
     driver-class-name: org.mariadb.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+app_payrool:
+  rabbitmq:
+    exchange: crud.exchange
+    queue: crud.app.queue
 
 #product:
 #  datasource:
