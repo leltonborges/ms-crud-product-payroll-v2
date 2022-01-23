@@ -2,8 +2,8 @@ package org.ms.payroll.payroll.services;
 
 import org.modelmapper.ModelMapper;
 import org.ms.payroll.payroll.dtos.ProductPayrollDTO;
-import org.ms.payroll.payroll.entities.payroll.ProductPayroll;
-import org.ms.payroll.payroll.repositories.payroll.ProductPayrollRepository;
+import org.ms.payroll.payroll.entities.ProductPayroll;
+import org.ms.payroll.payroll.repositories.ProductPayrollRepository;
 import org.ms.payroll.payroll.services.exceptions.NotFoundProductPayroll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

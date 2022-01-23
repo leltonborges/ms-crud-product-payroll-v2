@@ -1,14 +1,12 @@
-package org.ms.payroll.payroll.entities.payroll;
+package org.ms.payroll.payroll.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import java.io.Serial;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -31,4 +29,9 @@ public class ProductSele implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sele",
             cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private List<ProductPayroll> products;
+
+    @PrePersist
+    private final void initPost(){
+        this.data = new Date();
+    }
 }

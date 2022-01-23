@@ -1,14 +1,14 @@
-package org.ms.payroll.payroll.entities.payroll;
+package org.ms.payroll.payroll.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.ms.payroll.payroll.entities.product.Product;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,10 +22,11 @@ public class ProductPayroll implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long product;
     @Min(1)
     private Integer quantity;
 
-    @ManyToOne
+    @OneToMany
+    private List<Product> products;
+    @ManyToOne(fetch = FetchType.LAZY)
     private ProductSele sele;
 }

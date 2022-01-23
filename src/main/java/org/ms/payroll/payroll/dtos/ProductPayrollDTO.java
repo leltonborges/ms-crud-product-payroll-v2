@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.ms.payroll.payroll.entities.payroll.ProductSele;
+import org.ms.payroll.payroll.entities.ProductSele;
 
 import java.io.Serial;
 import java.io.Serializable;

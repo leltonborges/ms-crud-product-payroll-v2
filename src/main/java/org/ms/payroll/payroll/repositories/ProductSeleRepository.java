@@ -1,6 +1,6 @@
-package org.ms.payroll.payroll.repositories.payroll;
+package org.ms.payroll.payroll.repositories;
 
-import org.ms.payroll.payroll.entities.payroll.ProductSele;
+import org.ms.payroll.payroll.entities.ProductSele;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
